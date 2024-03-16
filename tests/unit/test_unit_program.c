@@ -1,9 +1,15 @@
 #include <unit.h>
 
 // se ejecuta antes de ejecutar en el test
-void setup(void) {}
+void setup(void)
+{
+}
 
 // se ejecuta despues de un test
-void tearDown(void) {}
+void tearDown(void)
+{
+}
 
-int main(void) {}
+int main(void)
+{
+}

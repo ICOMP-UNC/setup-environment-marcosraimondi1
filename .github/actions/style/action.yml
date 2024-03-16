@@ -13,17 +13,27 @@ runs:
 
         echo $PROJECT_PATH
 
-        # ToDo: Add documentation about 'tr' command and describe better this command
+        # tr: translate or delete character
+        #     - translate, squeeze, and/or delete characters from stdin to stdout.
+        #     - tr [OPTION]... STRING1 [STRING2]
+        #     - STRING1 and STRING2 specify arrays of characters
+        #     - translation means that STRING2 will replace STRING1
+        #
+        # find: finds files and lists them
+        # 
+        # the next section finds all sources and headers files and puts them in a space separated list
         SOURCE_FILES=$(find $PROJECT_PATH/src -type f \( -name "*.cpp" -or -name "*.hpp" -or -name "*.h" -or -name "*.c" \) | tr "\n" " ")
         SOURCE_FILES+=$(find $PROJECT_PATH/include -type f \( -name "*.cpp" -or -name "*.hpp" -or -name "*.h" -or -name "*.c" \) | tr "\n" " ")
         SOURCE_FILES+=$(find $PROJECT_PATH/lib -type f \( -name "*.cpp" -or -name "*.hpp" -or -name "*.h" -or -name "*.c" \) | tr "\n" " ")
 
         ERROR_FILE_FLAG=$PROJECT_PATH/clang-format_errors.txt
 
-        # ToDo: Add documentation and describe better this command
-        CLANG_COMMAND=$(clang-format -i $SOURCE_FILES) > ${ERROR_FILE_FLAG}
+        # clang-format: check and format code style 
+        #               - -n (--dry-run) option for checking sytle but not actually making changes
+        #                 outputs to stderr warnings and errors.
+        CLANG_COMMAND=$(clang-format -n $SOURCE_FILES 2> ${ERROR_FILE_FLAG}) 
 
-        echo "Running: clang-format -i $SOURCE_FILES"
+        echo "Running: clang-format -n $SOURCE_FILES"
 
         if [ -s $ERROR_FILE_FLAG ]; then
             echo "Error: There are some files that are not formatted correctly"
