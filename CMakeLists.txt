@@ -17,9 +17,15 @@ include_directories(include)
 # add sources
 file(GLOB_RECURSE SOURCES "src/*.c") # agrega en la variable global SOURCES todos los archivos .c
 
-# add flags
-# set(CMAKE_C_FLAGS flags)
-
 # crear el ejecutable
 add_executable(${PROJECT_NAME} ${SOURCES})
 
+# agregar librerias, busca otro CMakeLists.txt
+add_subdirectory(lib/libdyn)
+add_subdirectory(lib/libsta)
+
+target_include_directories(${PROJECT_NAME} PUBLIC lib/libdyn/include)
+target_include_directories(${PROJECT_NAME} PUBLIC lib/libsta/include)
+
+# link libraries, specify Project Name defined in CMakeLists.txt of each library
+target_link_libraries(${PROJECT_NAME} StatiCLib DynamiCLib)
