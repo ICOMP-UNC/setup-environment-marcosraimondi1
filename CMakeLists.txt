@@ -17,7 +17,7 @@ set(CMAKE_C_STANDARD 17)
 # include directory where to find headers
 include_directories(include)
 
-# module to get from repo unity
+# module to fetch a repository
 include(FetchContent)
 
 set(UNITY_GIT_URL "https://github.com/ThrowTheSwitch/Unity.git")
@@ -52,7 +52,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC lib/libsta/include)
 target_link_libraries(${PROJECT_NAME} StatiCLib DynamiCLib)
 
 # add tests
-if (RUN_TESTS EQUAL 1)
+if (RUN_TESTS EQUAL 1 OR RUN_COVERAGE EQUAL 1)
 	add_subdirectory(tests)
 endif()
 
