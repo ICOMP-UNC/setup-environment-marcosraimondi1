@@ -9,19 +9,34 @@ runs:
       run: |
         PROJECT_PATH=$(pwd)
 
-        # ToDo: Add documentation and describe better this command
-        ctest --test-dir build/tests --output-on-failure
+        ERROR_FILE_FLAG=$(pwd)/tests_errors.txt
+        
+        CTEST_ERROR_FILE_FLAG=$(pwd)/ctest_errors.txt
+        # run tests built with cmake
+        # --output-on-faileure: prints everythin outputted by the tests if it fails
+        # -VV verbose output
+        CTEST_COMMAND=$(ctest --test-dir build/tests --output-on-failure -VV 2> $CTEST_ERROR_FILE_FLAG 1>$ERROR_FILE_FLAG)
 
-        # ToDo: Add documentation and describe better this command
-        gcovr -r $PROJECT_PATH . > $PROJECT_PATH/coverage.txt
+        if [ -s $CTEST_ERROR_FILE_FLAG ]; then
+          echo "Error: Unit Tests Failed"
+          exit 1
+        else
+          echo "All tests where passed!"
+        fi
+        
+        # run coverage of those tests and oputput to file
+        gcovr -r $PROJECT_PATH . >> $ERROR_FILE_FLAG
 
         echo "Runnig: gcovr -r $PROJECT_PATH ."
 
-        cat $PROJECT_PATH/coverage.txt
+        cat $ERROR_FILE_FLAG
 
         # Find the value of correct coverage
-        # ToDo: Add documentation and describe better this command
-        COVERAGE_RESULT=$(grep "TOTAL" $PROJECT_PATH/coverage.txt | awk '{print $NF}' | cut -d '%' -f 1)
+        # parse coverage output file and extracts coverage percentage
+        # grep pulls out the line of the total
+        # awk prints only the last field (NF = number of fields of the grepped line)
+        # cut finnaly creates a list using '%' as a delimiter (-d '%') and keeps first value (-f 1)
+        COVERAGE_RESULT=$(grep "TOTAL" $ERROR_FILE_FLAG | awk '{print $NF}' | cut -d '%' -f 1)
 
         # Coverage lines GT 20
         if [ "$(echo "$COVERAGE_RESULT > 20" | bc)" -eq 1 ]; then
@@ -37,5 +52,5 @@ runs:
       if: failure()
       with:
         name: Tests or coverage errors!!!
-        path: $(pwd)/error_flag.txt
+        path: $(pwd)/tests_errors.txt
         retention-days: 1
