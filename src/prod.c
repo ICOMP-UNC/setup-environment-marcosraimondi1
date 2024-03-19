@@ -1,10 +1,10 @@
 #include "prod.h"
 
 /**
- * @brief calculate product of a and b
- * @param a prod1
- * @param b prod2
- * @returns a * b
+ * @brief Calculate product of a and b.
+ * @param a The first integer
+ * @param b The second integer
+ * @return a * b
  * */
 int prod(int a, int b)
 {
