@@ -22,6 +22,7 @@ void test_div_div()
 {
     TEST_ASSERT_EQUAL(2, div(10, 5));
     TEST_ASSERT_EQUAL(0, div(5, 0));
+    TEST_ASSERT_EQUAL(0, div(5, 10));
 }
 
 int main(void)

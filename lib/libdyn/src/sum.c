@@ -1,9 +1,10 @@
 #include "sum.h"
+
 /**
- * @brief add a and b
- * @param a number
- * @param b number
- * @returns a + b
+ * @brief Adds a and b.
+ * @param a The first integer
+ * @param b The second integer
+ * @return a + b
  * */
 int sum(int a, int b)
 {

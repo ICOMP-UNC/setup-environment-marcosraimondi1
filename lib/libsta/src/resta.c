@@ -1,10 +1,10 @@
 #include "resta.h"
 
 /**
- * @brief substract b from a
- * @param a
- * @param b
- * @returns a - b
+ * @brief Substracts b from a.
+ * @param a Minuend
+ * @param b Substraend
+ * @return a - b
  * */
 int resta(int a, int b)
 {
