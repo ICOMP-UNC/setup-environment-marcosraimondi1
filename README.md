@@ -1,3 +1,5 @@
+[![QA Workflow](https://github.com/ICOMP-UNC/setup-environment-marcosraimondi1/actions/workflows/QAWorkflow.yml/badge.svg)](https://github.com/ICOMP-UNC/setup-environment-marcosraimondi1/actions/workflows/QAWorkflow.yml)
+
 # Setting up the Development Environment for Operating Systems II
 
 ## 🎯Objective
@@ -32,3 +34,4 @@ Establish a consistent and efficient working environment to serve as the foundat
 - **Portability and Scalability:** Configuration with CMake ensures the project is easily portable and scalable as new components are added.
 
 This lab establishes the groundwork for effective, collaborative, and high-quality development in subsequent projects of Operating Systems II by instilling essential practices in CI/CD, testing, and code construction.
+
