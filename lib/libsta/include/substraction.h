@@ -1,4 +1,4 @@
-#include "resta.h"
+#pragma once
 
 /**
  * @brief Substracts b from a.
@@ -6,7 +6,4 @@
  * @param b Substraend
  * @return a - b
  * */
-int resta(int a, int b)
-{
-    return a - b;
-}
+int substraction(int a, int b);

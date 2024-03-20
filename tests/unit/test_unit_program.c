@@ -2,12 +2,12 @@
 #include "prod.h"
 #include <unity.h>
 
-// se ejecuta antes de ejecutar en el test
+// executes before a test
 void setUp(void)
 {
 }
 
-// se ejecuta despues de un test
+// executes after a test
 void tearDown(void)
 {
 }

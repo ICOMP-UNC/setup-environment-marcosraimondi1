@@ -52,5 +52,6 @@ runs:
       if: failure()
       with:
         name: Tests or coverage errors!!!
-        path: $(pwd)/tests_errors.txt
+        path: ./tests_errors.txt
         retention-days: 1
+

@@ -1,7 +1,7 @@
-# version minima requerida por este proyecto de cmake
+# minimum required cmake version for this project
 cmake_minimum_required(VERSION 3.25 FATAL_ERROR)
 
-# detalles del proyecto
+# project details
 project(
 	"FirstProjectInCmake"
 	VERSION 1.1.0
@@ -36,12 +36,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Unity)
 
 # add sources
-file(GLOB_RECURSE SOURCES "src/*.c") # agrega en la variable global SOURCES todos los archivos .c
+file(GLOB_RECURSE SOURCES "src/*.c") # adds into global variable SOURCES .c files
 
-# crear el ejecutable
+# create executable
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# agregar librerias, busca otro CMakeLists.txt
+# add libraries, finds other CMakeLists.txt
 add_subdirectory(lib/libdyn)
 add_subdirectory(lib/libsta)
 
