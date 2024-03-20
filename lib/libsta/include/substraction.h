@@ -6,5 +6,5 @@
  * @param b Substraend
  * @return a - b
  * */
-int resta(int a, int b);
+int substraction(int a, int b);
 

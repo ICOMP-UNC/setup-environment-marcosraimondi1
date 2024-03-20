@@ -1,7 +1,5 @@
-# version minima requerida por este proyecto de cmake
 cmake_minimum_required(VERSION 3.25 FATAL_ERROR)
 
-# include headears directory from project
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
 # get files to test
