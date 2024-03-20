@@ -49,6 +49,7 @@ runs:
 
         if [ -s $ERROR_FILE_FLAG ]; then
             echo "Error: There are some files that are not formatted correctly"
+            cat $ERROR_FILE_FLAG
             exit 1
         else
             echo "All files are formatted correctly. Niiiceee"
@@ -60,6 +61,6 @@ runs:
       if: failure()
       with:
         name: Clang-format errors!!!
-        path: $PROJECT_PATH/clang-format_errors.txt
+        path: $(pwd)/clang-format_errors.txt
         retention-days: 1
 
