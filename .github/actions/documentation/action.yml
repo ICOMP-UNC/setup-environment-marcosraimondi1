@@ -42,3 +42,4 @@ runs:
         name: Doxygen errors!!!
         path: $(pwd)/dox_errors.txt
         retention-days: 1
+

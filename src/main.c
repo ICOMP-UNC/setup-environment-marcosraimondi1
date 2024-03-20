@@ -16,3 +16,4 @@ int main(int argc, char* argv[])
     printf("suma: %i, resta: %i \n", sum(10, 5), resta(10, 5));
     return 0;
 }
+

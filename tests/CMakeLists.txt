@@ -44,3 +44,4 @@ target_link_libraries(test_${PROJECT_NAME} unity)
 
 # add test
 add_test(NAME test_${PROJECT_NAME} COMMAND test_${PROJECT_NAME})
+

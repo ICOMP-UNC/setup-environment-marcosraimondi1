@@ -8,3 +8,4 @@ void greetings()
 {
     printf("Hello World\n");
 }
+

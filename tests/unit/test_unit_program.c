@@ -32,3 +32,4 @@ int main(void)
     RUN_TEST(test_div_div);
     return UNITY_END();
 }
+

@@ -21,3 +21,4 @@ file(GLOB_RECURSE SOURCES "src/*.c") # agrega en la variable global SOURCES todo
 # set(CMAKE_C_FLAGS flags)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
+
