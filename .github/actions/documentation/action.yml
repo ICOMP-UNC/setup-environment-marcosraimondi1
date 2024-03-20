@@ -40,6 +40,6 @@ runs:
       if: failure()
       with:
         name: Doxygen errors!!!
-        path: $(pwd)/dox_errors.txt
+        path: ./dox_errors.txt
         retention-days: 1
 

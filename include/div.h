@@ -8,4 +8,3 @@
  * @warning No error is thrown for zero division
  * */
 int div(int a, int b);
-

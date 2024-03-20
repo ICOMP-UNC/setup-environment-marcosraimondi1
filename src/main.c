@@ -16,4 +16,3 @@ int main(int argc, char* argv[])
     printf("sum: %i, substraction: %i \n", sum(10, 5), substraction(10, 5));
     return 0;
 }
-

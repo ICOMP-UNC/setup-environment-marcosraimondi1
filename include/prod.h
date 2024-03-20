@@ -7,4 +7,3 @@
  * @return a * b
  * */
 int prod(int a, int b);
-

@@ -34,19 +34,6 @@ runs:
         echo "Running: clang-format -n $SOURCE_FILES"
         CLANG_COMMAND=$(clang-format -n $SOURCE_FILES 2> ${ERROR_FILE_FLAG}) 
 
-        # test if files end in a new line
-        # find all files excluding .git, external and build folders (dirs in .gitignore)
-        # tail -n1: get last line of file
-        # grep: 
-        #   - -q: quiet mode, no output
-        #   - "^$": find empty line (no characters from start of line (^) to end of line ($))
-        # || echo only runs if grep didn't find an empty line
-        # stdout append to ERROR_FILE_FLAG
-        ENDOFFILE_COMMAND=$(find . -type f \
-          \( ! -path "./build/*" -a ! -path "./external/*" -a ! -path "./.git/*" -a ! -path $ERROR_FILE_FLAG \) \
-          -exec sh -c 'tail -n1 {} | grep -q "^$" || echo "no new line at end of file in {}"' \; \
-          >>$ERROR_FILE_FLAG)
-
         if [ -s $ERROR_FILE_FLAG ]; then
             echo "Error: There are some files that are not formatted correctly"
             cat $ERROR_FILE_FLAG
